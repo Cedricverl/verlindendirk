@@ -63,12 +63,12 @@ html, body {
 }
 
 html {
-    scroll-padding-top: 70px; /* Adjust this value to match the height of your navbar */
+    scroll-padding-top: 55px; /* Adjust this value to match the height of your navbar */
     scroll-behavior: smooth;
 }
 
 .brand-image {
-    height: 300px; /* Set a consistent height for all images */
+    height: 250px; /* Set a consistent height for all images */
     width: auto; /* Maintain the aspect ratio */
     object-fit: contain; /* Ensure the entire image fits within the height */
 }
