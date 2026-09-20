@@ -1,23 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verlinden Dirk - Aanbod</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
-    <link rel="icon" href="img/favicon.png" type="image/x-icon"> <!-- Add this line -->
-
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <meta name="description" content="Ontdek het aanbod van Juwelier Verlinden Dirk: verfijnde juwelen, horloges en trouwringen van gerenommeerde merken zoals Al Coro, Amici, Rado en Memoire.">
 </head>
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+        <a class="navbar-brand" href="index.html"><img src="img/logo-mark-white.png" alt="Verlinden Dirk"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Menu omschakelen">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="offer.html">Aanbod</a></li>
+                <li class="nav-item"><a class="nav-link active" href="offer.html" aria-current="page">Aanbod</a></li>
                 <li class="nav-item"><a class="nav-link" href="services.html">Diensten</a></li>
                 <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
             </ul>
@@ -25,17 +26,18 @@
     </nav>
     <div class="container-fluid p-0">
         <div class="row no-gutters">
-            <div class="col-md-4 image-container-jewels full-height p-0"></div>
-            <div class="col-md-8 pl-5 pr-5">
-                <div class="row no-gutters" style="height: 25vh;"> <!-- Full height row -->
+            <div class="col-md-4 d-none d-md-block image-container-jewels full-height"></div>
+            <div class="col-md-8 pl-5 pr-5" >
+                <div class="row no-gutters page-header pb-0 mb-0" style="min-height: 19vh;"> <!-- Full height row -->
                     <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
-                        <h1 class="pb-3">Ons Aanbod</h1>                    
-                        <h3 class="pt-2">Voor ieder wat wils met een ruime keuze <a href="#" class="text-decoration-none text-dark">juwelen</a>, <a href="#uurwerken" class="text-decoration-none text-dark">uurwerken</a> en <a href="#trouwringen" class="text-decoration-none text-dark">trouwringen</a>.</h3>
+                        <img src="img/logo.jpg" alt="Verlinden Dirk Logo" class="img-fluid mb-3 brand-logo">
+                        <h1 class="pb-3">Ons Aanbod</h1>
+                        <h3 class="pt-2">Voor ieder wat wils met een ruime keuze <a href="#juwelen" class="text-decoration-none text-dark">juwelen</a>, <a href="#uurwerken" class="text-decoration-none text-dark">uurwerken</a> en <a href="#trouwringen" class="text-decoration-none text-dark">trouwringen</a>.</h3>
                     </div>
                 </div>
-                <div class="row no-gutters" style="height: 75vh;"> <!-- Full height row -->
+                <div class="row no-gutters" id="juwelen" style="min-height: 75vh;"> <!-- Full height row -->
                     <div class="col-md-12 d-flex flex-column justify-content-left align-items-left">
-                        <h2><a href="#" class="text-decoration-none text-dark">Juwelen</a></h2>
+                        <h2><a href="#juwelen" class="text-decoration-none text-dark">Juwelen</a></h2>
                         <p class="text-muted">Ontdek onze verfijnde collectie juwelen, zorgvuldig geselecteerd om elke gelegenheid bijzonder te maken.</p>
 
                         <div class="row no-gutters">
@@ -66,11 +68,8 @@
                                 <p class="mt-2">Dulci Nea</p>
                             </div>
                             <div class="col-md-3 p-2 text-center">
-                                <a href="#" target="_blank" rel="noopener noreferrer">
-                                    <img src="img/jewels/nona.jpg" alt="Nona" class="img-fluid brand-image">
-                                </a>
-                                <p class="mt-2">Nona (Yazzy's)?</p>
-
+                                <img src="img/jewels/nona.jpg" alt="Nona" class="img-fluid brand-image">
+                                <p class="mt-2">Nona</p>
                             </div>
                             <div class="col-md-3 p-2 text-center">
                                 <a href="https://www.orage.be/" target="_blank" rel="noopener noreferrer">
@@ -100,10 +99,10 @@
         </div>
     </div>
     <div class="container-fluid p-0">
-        <div class="row no-gutters" style="height: 100vh;">
-            <div class="col-md-4 image-container-watches full-height p-0"></div>
+        <div class="row no-gutters" style="min-height: 100vh;">
+            <div class="col-md-4 d-none d-md-block image-container-watches full-height"></div>
             <div class="col-md-8 d-flex flex-column pl-5 pr-5">
-                <div class="row no-gutters flex-column pt-5" id="uurwerken" style="height: 100vh;">
+                <div class="row no-gutters flex-column pt-5" id="uurwerken" style="min-height: 100vh; margin-top:50px">
                     <h2><a href="#uurwerken" class="text-decoration-none text-dark">Uurwerken</a></h2>
                     <p class="text-muted">Stijlvolle en betrouwbare uurwerken van gerenommeerde merken, perfect voor elke pols.</p>
                     <div class="row no-gutters">
@@ -161,17 +160,15 @@
         </div>
     </div>
     <div class="container-fluid p-0">
-        <div class="row no-gutters" style="height: 100vh;">
-            <div class="col-md-4 image-container-weddingring full-height p-0"></div>
-            <div class="col-md-8 d-flex flex-column pl-5 pr-5">
-                <div class="row no-gutters flex-column pt-5" id="trouwringen" style="height: 100vh;">
+        <div class="row no-gutters" style="min-height: 100vh;">
+            <div class="col-md-4 d-none d-md-block image-container-weddingring full-height p-0"></div>
+            <div class="col-md-8 d-flex flex-column pl-5 pr-5 pb-0 mb-0">
+                <div class="row no-gutters flex-column pt-5 pt-0" id="trouwringen" style="min-height: 90vh; margin-top:50px; margin-bottom:0px;">
                     <h2><a href="#trouwringen" class="text-decoration-none text-dark">Trouwringen</a></h2>
                     <p class="text-muted">Een symbool van eeuwige liefde: kies uit onze exclusieve collectie trouwringen.</p>
                     <div class="row no-gutters">
                         <div class="col-md-4 p-2 text-center">
-                            <a href="#trouwringen">
-                                <img src="img/rings/aurodesign.png" alt="Auro Design" class="img-fluid brand-image">
-                            </a>
+                            <img src="img/rings/aurodesign.png" alt="Auro Design" class="img-fluid brand-image">
                             <p class="mt-2">Auro Design</p>
                         </div>
                         <div class="col-md-4 p-2 text-center">
@@ -187,14 +184,22 @@
                             <p class="mt-2">Amici</p>
                         </div>
                     </div>
+                    <div class="row no-gutters mt-auto">
+                        <div class="col-md-12 text-center p-3">
+                            <p class="mb-0">Juwelier Dirk Verlinden - Ondernemingsnummer BE0687 258 57</p>
+                    
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
+
     </div>
-    <div class="row no-gutters mt-auto">
-        <div class="col-md-12 text-center p-3">
-            <p class="mb-0">Juwelier Dirk Verlinden - Ondernemingsnummer BE0687 258 57</p>
-        </div>
+
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </html>

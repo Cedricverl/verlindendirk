@@ -6,51 +6,148 @@ html, body {
 }
 .full-height {
     height: 100vh; /* Full viewport height */
+    position: sticky;
+    top: 0;
+    align-self: flex-start; /* keep its own height instead of stretching to match the (taller) content column */
 }
 .image-container-index {
-    background: url('img/toog.jpg') no-repeat center center;
+    background: url('img/toog.webp') no-repeat center center;
     background-size: cover; /* Ensures the image covers the entire container */
 }
 
 .image-container-watches {
-    background: url('img/watch.jpg') no-repeat center center;
+    background: url('img/watch.webp') no-repeat center center;
     background-size: cover; /* Ensures the image covers the entire container */
 }
 
 .image-container-atelier {
-    background: url('img/atelier.jpg') no-repeat center center;
+    background: url('img/atelier.webp') no-repeat center center;
     background-size: cover; /* Ensures the image covers the entire container */
 }
 
 .image-container-jewels {
-    background: url('img/jewels.jpg') no-repeat center center;
+    background: url('img/jewels.webp') no-repeat center center;
     background-size: cover; /* Ensures the image covers the entire container */
 }
 
 .image-container-weddingring {
-    background: url('img/weddingring.jpg') no-repeat center center;
+    background: url('img/weddingring.webp') no-repeat center center;
     background-size: cover; /* Ensures the image covers the entire container */
 }
 
 .image-container-gevel {
-    background: url('img/gevel.jpg') no-repeat center center;
+    background: url('img/gevel.webp') no-repeat center center;
     background-size: cover; /* Ensures the image covers the entire container */
+}
+
+.brand-logo {
+    width: 220px;
+    height: auto;
+}
+
+.page-header {
+    padding-top: 80px; /* clears the fixed navbar (56px tall) with room to spare */
+}
+
+/* Label/value rows (opening hours, contact info): a fixed label width instead of a
+   percentage stops long single words like "Telefoonnummer:" from overflowing into
+   the value column on narrow screens. */
+.d-flex.w-100 > p.w-25 {
+    width: auto !important;
+    flex: 0 0 170px;
+}
+
+.d-flex.w-100 > p.w-75 {
+    width: auto !important;
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+/* Between md and xl, the sidebar image plus the two-column contact/hours split leaves
+   very little room for the value column (as little as ~15px), which forces text to
+   wrap one letter per line. Stack label above value instead in that range. */
+@media (min-width: 768px) and (max-width: 1199.98px) {
+    .d-flex.w-100 {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .d-flex.w-100 > p.w-25 {
+        flex: 0 0 auto;
+        margin-bottom: 0.15rem;
+    }
+
+    .d-flex.w-100 > p.w-75 {
+        flex: 0 0 auto;
+        width: 100% !important;
+    }
 }
 
 .navbar {
     background-color: #800020; /* Bordeaux color */
-    border-bottom: 2px solid #a52a2a; /* Optional: Add a luxurious border */
+    border-bottom: 1px solid #d4af37; /* thin gold accent line */
 }
 
-.navbar-brand, .navbar-nav .nav-link {
+.navbar-brand {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.navbar-brand img {
+    height: 32px;
+    width: auto;
+}
+
+.navbar-nav .nav-link {
     color: #f8f8f8 !important; /* Light text for contrast */
-    text-transform: uppercase; /* Optional: Make text uppercase */
-    letter-spacing: 1px; /* Add spacing between letters */
+    text-transform: lowercase;
+    letter-spacing: 1px;
+    position: relative;
+    padding-bottom: 2px;
+    text-decoration: none !important;
 }
 
-.navbar-brand:hover, .navbar-nav .nav-link:hover {
+.navbar-nav .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: -1px;
+    height: 1px;
+    background: #ffd700;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease;
+}
+
+.navbar-nav .nav-link:hover {
     color: #ffd700 !important; /* Gold color on hover for a luxurious effect */
-    text-decoration: underline; /* Remove underline on hover */
+}
+
+.navbar-nav .nav-link:hover::after {
+    transform: scaleX(1);
+}
+
+.contact-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    flex-shrink: 0;
+    color: #800020; /* bordeaux, matches the brand accent */
+}
+
+.navbar-nav .nav-link.active {
+    color: #f8f8f8 !important; /* marks the current page, even without hovering */
+    font-weight: 700;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(248, 248, 248, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
 .brand-image {
