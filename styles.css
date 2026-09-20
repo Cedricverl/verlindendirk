@@ -10,6 +10,19 @@ html, body {
     top: 0;
     align-self: flex-start; /* keep its own height instead of stretching to match the (taller) content column */
 }
+
+.mobile-banner {
+    width: 100%;
+    height: 220px; /* a plain banner on mobile, not full-height/sticky like the desktop sidebar */
+}
+
+/* The footer row inherits the content column's pl-5/pr-5 (3rem each side). Cancel that
+   just for the footer so its one-line text has the full width to stay unwrapped on
+   narrow screens. */
+.row.no-gutters.mt-auto {
+    margin-left: -3rem;
+    margin-right: -3rem;
+}
 .image-container-index {
     background: url('img/toog.webp') no-repeat center center;
     background-size: cover; /* Ensures the image covers the entire container */
