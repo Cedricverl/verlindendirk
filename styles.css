@@ -64,10 +64,11 @@ html, body {
     overflow-wrap: break-word;
 }
 
-/* Between md and xl, the sidebar image plus the two-column contact/hours split leaves
-   very little room for the value column (as little as ~15px), which forces text to
-   wrap one letter per line. Stack label above value instead in that range. */
-@media (min-width: 768px) and (max-width: 1199.98px) {
+/* Below xl, the value column can get squeezed down to a handful of pixels wide
+   (the md/lg sidebar+two-column split, or just a narrow phone in the ~350-400px
+   range), which forces text to wrap one letter per line. Stack label above value
+   instead everywhere below that, where there's always enough width to be safe. */
+@media (max-width: 1199.98px) {
     .d-flex.w-100 {
         flex-direction: column;
         align-items: flex-start;
