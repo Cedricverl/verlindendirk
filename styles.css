@@ -183,3 +183,13 @@ html {
     width: auto; /* Maintain the aspect ratio */
     object-fit: contain; /* Ensure the entire image fits within the height */
 }
+
+/* Temporary announcement (e.g. holiday closure) shown on the homepage */
+.closure-notice {
+    border-left: 4px solid #800020; /* bordeaux, matches the brand accent */
+    background: #f8f9fa;
+    color: #800020;
+    font-weight: 700;
+    padding: 0.75rem 1.25rem;
+    text-align: center;
+}
