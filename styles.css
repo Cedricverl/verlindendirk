@@ -1,28 +1,107 @@
+/* Brand palette and type. Change colors here rather than in the rules below. */
+:root {
+    --bordeaux: #800020;
+    --bordeaux-dark: #5c0017;
+    --gold: #c5a258; /* muted gold: the only gold used across the site */
+    --ink: #2b2b2b;
+    --muted: #6b6560;
+    --cream: #f8f5f0;
+    --nav-h: 56px;
+    --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Lato', 'Helvetica Neue', Arial, sans-serif;
+}
+
 html, body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
 }
+
+html {
+    scroll-padding-top: calc(var(--nav-h) + 1rem); /* anchor links land below the fixed navbar */
+    scroll-behavior: smooth;
+}
+
+body {
+    padding-top: var(--nav-h); /* everything starts below the fixed navbar instead of behind it */
+    font-family: var(--font-sans);
+    color: var(--ink);
+    background: #fff;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+}
+
+h1 { font-size: clamp(2.1rem, 1.6rem + 1.8vw, 2.9rem); }
+h2 { font-size: clamp(1.7rem, 1.45rem + 0.9vw, 2.1rem); color: var(--bordeaux); }
+h3 { font-size: 1.5rem; }
+
+a {
+    color: var(--bordeaux);
+}
+
+a:hover {
+    color: var(--bordeaux-dark);
+}
+
 .full-height {
-    height: 100vh; /* Full viewport height */
+    height: calc(100vh - var(--nav-h)); /* viewport height minus the navbar above it */
     position: sticky;
-    top: 0;
+    top: var(--nav-h);
     align-self: flex-start; /* keep its own height instead of stretching to match the (taller) content column */
 }
 
 .mobile-banner {
+    position: relative;
     width: 100%;
     height: 220px; /* a plain banner on mobile, not full-height/sticky like the desktop sidebar */
 }
 
-/* The footer row inherits the content column's pl-5/pr-5 (3rem each side). Cancel that
-   just for the footer so its one-line text has the full width to stay unwrapped on
-   narrow screens. */
-.row.no-gutters.mt-auto {
-    margin-left: -3rem;
-    margin-right: -3rem;
+/* Side photos: a copy of the background on a pseudo-element, so it can zoom in slowly
+   (from 108% to 100%) without spilling outside the photo's box. */
+.full-height,
+.mobile-banner {
+    overflow: hidden;
 }
+
+.full-height::before,
+.mobile-banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: inherit;
+}
+
+.reveal-ready .full-height::before,
+.reveal-ready .mobile-banner::before {
+    transform: scale(1.08);
+    transition: transform 3s cubic-bezier(0.2, 0.6, 0.2, 1);
+}
+
+.reveal-ready .full-height.is-visible::before,
+.reveal-ready .mobile-banner.is-visible::before {
+    transform: scale(1);
+}
+
+/* Scroll reveal: elements start slightly lower and transparent, script.js adds .is-visible */
+.reveal-ready .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal-ready .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
 .image-container-index {
     background: url('img/toog.webp') no-repeat center center;
     background-size: cover; /* Ensures the image covers the entire container */
@@ -54,12 +133,86 @@ html, body {
 }
 
 .brand-logo {
-    width: 220px;
+    width: 180px;
     height: auto;
 }
 
 .page-header {
-    padding-top: 80px; /* clears the fixed navbar (56px tall) with room to spare */
+    padding-top: 2.5rem;
+    padding-bottom: 2rem;
+}
+
+/* Short gold rule under each page title */
+.page-title::after {
+    content: "";
+    display: block;
+    width: 60px;
+    height: 1px;
+    margin: 0.9rem auto 0;
+    background: var(--gold);
+    animation: draw-line 1.2s ease-out 0.5s both; /* draws outwards from the centre */
+}
+
+@keyframes draw-line {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+}
+
+.intro {
+    max-width: 36rem;
+    margin: 0 auto 1rem;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--muted);
+}
+
+.cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+}
+
+.btn-brand,
+.btn-brand-outline {
+    border: 1px solid var(--bordeaux);
+    border-radius: 0;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.btn-brand {
+    background: var(--bordeaux);
+    color: #fff;
+}
+
+.btn-brand:hover {
+    background: var(--bordeaux-dark);
+    border-color: var(--bordeaux-dark);
+    color: #fff;
+}
+
+.btn-brand-outline {
+    background: transparent;
+    color: var(--bordeaux);
+}
+
+.btn-brand-outline:hover {
+    background: var(--bordeaux);
+    color: #fff;
+}
+
+.catalog-cover {
+    max-width: 200px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    transition: transform 0.3s ease;
+}
+
+.catalog-cover:hover {
+    transform: translateY(-4px);
 }
 
 /* Label/value rows (opening hours, contact info): a fixed label width instead of a
@@ -98,9 +251,15 @@ html, body {
     }
 }
 
+.map-frame {
+    width: 100%;
+    margin-top: 1rem;
+}
+
 .navbar {
-    background-color: #800020; /* Bordeaux color */
-    border-bottom: 1px solid #d4af37; /* thin gold accent line */
+    min-height: var(--nav-h);
+    background-color: var(--bordeaux);
+    border-bottom: 1px solid var(--gold); /* thin gold accent line */
 }
 
 .navbar-brand {
@@ -129,14 +288,14 @@ html, body {
     right: 0.5rem;
     bottom: -1px;
     height: 1px;
-    background: #ffd700;
+    background: var(--gold);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.25s ease;
 }
 
 .navbar-nav .nav-link:hover {
-    color: #ffd700 !important; /* Gold color on hover for a luxurious effect */
+    color: var(--gold) !important;
 }
 
 .navbar-nav .nav-link:hover::after {
@@ -148,7 +307,7 @@ html, body {
     height: 16px;
     margin-right: 8px;
     flex-shrink: 0;
-    color: #800020; /* bordeaux, matches the brand accent */
+    color: var(--bordeaux);
 }
 
 .navbar-nav .nav-link.active {
@@ -164,32 +323,325 @@ html, body {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(248, 248, 248, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
+/* Offer page: one block per category (juwelen, uurwerken, trouwringen) */
+.offer-section {
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+}
+
+.section-lead {
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+}
+
 .brand-image {
-    transition: transform 0.3s ease; /* Smooth transition */
+    height: 220px; /* Set a consistent height for all images */
+    width: 100%;
+    object-fit: contain; /* Ensure the entire image fits within the height */
+    transition: transform 0.6s ease;
 }
 
 .brand-image:hover {
-    transform: scale(0.95); /* Shrinks the image slightly */
-    cursor: pointer; /* Changes the cursor to indicate it's clickable */
+    transform: scale(1.06); /* gentle zoom on the piece */
 }
 
-html {
-    scroll-padding-top: 55px; /* Adjust this value to match the height of your navbar */
-    scroll-behavior: smooth;
+@media (max-width: 767.98px) {
+    .brand-image {
+        height: 140px; /* two per row on phones */
+    }
 }
 
-.brand-image {
-    height: 250px; /* Set a consistent height for all images */
-    width: auto; /* Maintain the aspect ratio */
-    object-fit: contain; /* Ensure the entire image fits within the height */
+.product-caption {
+    margin: 0.5rem 0 0;
+    font-size: 0.85rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+}
+
+/* Jump links to each category, under the offer page title */
+.category-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.category-nav a {
+    transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+    padding: 0.35rem 0.9rem;
+    border: 1px solid var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 0.04em;
+    color: var(--ink);
+    text-decoration: none;
+}
+
+.category-nav a:hover {
+    background: var(--bordeaux);
+    border-color: var(--bordeaux);
+    color: #fff;
+}
+
+.brand-strip {
+    padding: 1.5rem 0;
+    border-top: 1px solid rgba(197, 162, 88, 0.4);
+    border-bottom: 1px solid rgba(197, 162, 88, 0.4);
+    text-align: center;
+}
+
+.brand-strip-title {
+    font-size: 0.8rem;
+    font-family: var(--font-sans);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.75rem;
+}
+
+.brand-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem 1.5rem;
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+}
+
+.brand-list span {
+    white-space: nowrap;
+}
+
+/* every brand gets its own small gold diamond, so no separator dangles at a line break */
+.brand-list span::before {
+    content: "◆";
+    margin-right: 0.45rem;
+    font-size: 0.5rem;
+    vertical-align: middle;
+    color: var(--gold);
+}
+
+.category {
+    margin-bottom: 2rem;
+}
+
+.category h3 {
+    margin-bottom: 0.15rem;
+}
+
+.category-brands {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin-bottom: 0.5rem;
+}
+
+#trouwringen .category-brands {
+    margin: 0.5rem 0 2rem;
+}
+
+.showroom-note {
+    text-align: center;
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--bordeaux);
+    margin: 1rem 0 0;
+}
+
+/* Wedding rings: numbered steps with gold numerals */
+.steps {
+    list-style: none;
+    counter-reset: step;
+    padding: 0;
+    margin: 0 0 2rem;
+}
+
+.steps li {
+    counter-increment: step;
+    position: relative;
+    padding: 0.5rem 0 0.5rem 3rem;
+}
+
+.steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0.3rem;
+    width: 2rem;
+    height: 2rem;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 1.9rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--bordeaux);
+}
+
+.appointment-box {
+    padding: 2rem 1.5rem;
+    background: var(--cream);
+    border-top: 2px solid var(--gold);
+    text-align: center;
+}
+
+.appointment-box .cta-row {
+    margin-top: 1rem;
+}
+
+/* Services page */
+.service-card {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.75rem;
+    margin-bottom: 1.25rem;
+    background: var(--cream);
+    border-top: 2px solid var(--gold);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+.service-card h2 {
+    margin-bottom: 0.5rem;
+}
+
+.service-card p:last-child {
+    margin-bottom: 0;
+}
+
+.service-icon {
+    flex: 0 0 auto;
+    width: 44px;
+    height: 44px;
+    padding: 9px;
+    border-radius: 50%;
+    background: #fff;
+    fill: none;
+    stroke: var(--bordeaux);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+@media (min-width: 576px) {
+    .service-list.two-col {
+        columns: 2;
+        column-gap: 2rem;
+    }
+}
+
+.service-list li {
+    padding: 0.2rem 0 0.2rem 1rem;
+    position: relative;
+    break-inside: avoid;
+}
+
+.service-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.75em;
+    width: 5px;
+    height: 5px;
+    background: var(--gold);
+    transform: rotate(45deg); /* small gold diamond as bullet */
+}
+
+.service-cta {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--muted);
+}
+
+@media (max-width: 575.98px) {
+    .service-card {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1.25rem;
+    }
 }
 
 /* Temporary announcement (e.g. holiday closure) shown on the homepage */
 .closure-notice {
-    border-left: 4px solid #800020; /* bordeaux, matches the brand accent */
-    background: #f8f9fa;
-    color: #800020;
+    border-left: 4px solid var(--bordeaux);
+    background: var(--cream);
+    color: var(--bordeaux);
     font-weight: 700;
     padding: 0.75rem 1.25rem;
     text-align: center;
+}
+
+.site-footer {
+    background: var(--bordeaux);
+    color: #f3ece4;
+    border-top: 1px solid var(--gold);
+    padding: 3rem 0 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.7;
+}
+
+.site-footer a {
+    color: #f3ece4;
+    transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+    color: var(--gold);
+}
+
+.footer-logo {
+    height: 34px;
+    width: auto;
+    margin-bottom: 1rem;
+}
+
+.footer-heading {
+    font-size: 1.3rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+}
+
+.footer-bottom {
+    margin: 2rem 0 0;
+    padding-top: 1.25rem;
+    border-top: 1px solid rgba(197, 162, 88, 0.35);
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+    text-align: center;
+    opacity: 0.85;
+}
+
+/* Visitors who asked their device for less motion get no animations at all */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .brand-image:hover,
+    .service-card:hover,
+    .catalog-cover:hover {
+        transform: none;
+    }
 }

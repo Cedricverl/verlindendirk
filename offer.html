@@ -5,9 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Verlinden Dirk - Aanbod</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Lato:wght@400;700&display=swap">
     <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS -->
     <link rel="icon" href="img/favicon.png" type="image/png">
     <meta name="description" content="Ontdek het aanbod van Juwelier Verlinden Dirk: verfijnde juwelen, horloges en trouwringen van gerenommeerde merken zoals Al Coro, Amici, Rado en Memoire.">
+    <script>
+        // Hide .reveal elements until script.js fades them in, unless the visitor prefers
+        // less motion. Failsafe: if script.js doesn't run, show everything after 2.5s.
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+            document.documentElement.classList.add('reveal-ready');
+            setTimeout(function () {
+                if (!window.revealStarted) document.documentElement.classList.remove('reveal-ready');
+            }, 2500);
+        }
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -26,181 +39,200 @@
     </nav>
     <div class="container-fluid p-0">
         <div class="row no-gutters">
-            <div class="col-md-4 d-none d-md-block image-container-jewels full-height"></div>
+            <div class="col-md-4 d-none d-md-block image-container-jewels full-height p-0"></div>
             <div class="d-md-none image-container-jewels mobile-banner"></div>
-            <div class="col-md-8 pl-5 pr-5" >
-                <div class="row no-gutters page-header pb-0 mb-0" style="min-height: 19vh;"> <!-- Full height row -->
-                    <div class="col-md-12 d-flex flex-column justify-content-center align-items-center">
-                        <img src="img/logo.jpg" alt="Verlinden Dirk Logo" class="img-fluid mb-3 brand-logo">
-                        <h1 class="pb-3">Ons Aanbod</h1>
-                        <h3 class="pt-2">Voor ieder wat wils met een ruime keuze <a href="#juwelen" class="text-decoration-none text-dark">juwelen</a>, <a href="#uurwerken" class="text-decoration-none text-dark">uurwerken</a> en <a href="#trouwringen" class="text-decoration-none text-dark">trouwringen</a>.</h3>
-                    </div>
+            <div class="col-md-8 px-4 px-md-5">
+                <div class="page-header text-center">
+                    <img src="img/logo.jpg" alt="Verlinden Dirk Logo" class="img-fluid mb-4 brand-logo reveal">
+                    <h1 class="page-title reveal">Ons aanbod</h1>
+                    <p class="intro reveal">Een greep uit onze collectie. Kom gerust langs in de winkel: daar ziet u het volledige aanbod en helpen we u graag persoonlijk verder.</p>
+                    <nav class="category-nav reveal" aria-label="Categorieën">
+                        <a href="#ringen">Ringen</a>
+                        <a href="#oorbellen">Oorbellen</a>
+                        <a href="#armbanden">Armbanden</a>
+                        <a href="#kettingen">Kettingen</a>
+                        <a href="#uurwerken">Uurwerken</a>
+                        <a href="#trouwringen">Trouwringen</a>
+                    </nav>
                 </div>
-                <div class="row no-gutters" id="juwelen" style="min-height: 75vh;"> <!-- Full height row -->
-                    <div class="col-md-12 d-flex flex-column justify-content-left align-items-left">
-                        <h2><a href="#juwelen" class="text-decoration-none text-dark">Juwelen</a></h2>
-                        <p class="text-muted">Ontdek onze verfijnde collectie juwelen, zorgvuldig geselecteerd om elke gelegenheid bijzonder te maken.</p>
-
+                <div class="brand-strip reveal">
+                    <h2 class="brand-strip-title">Onze merken</h2>
+                    <p class="brand-list"><span>Al Coro</span> <span>Amici</span> <span>Hulchi Belluni</span> <span>Dulcinea</span> <span>Nona</span> <span>Orage</span> <span>Moser + Pfeil</span> <span>Les Deux</span> <span>Rado</span> <span>Tissot</span> <span>Certina</span> <span>Balmain</span> <span>Rodania</span> <span>Fossil</span> <span>Casio</span> <span>Diesel</span> <span>Auro Design</span> <span>Memoire</span></p>
+                </div>
+                <div class="offer-section" id="juwelen">
+                    <h2 class="reveal">Juwelen</h2>
+                    <p class="section-lead reveal">Ontdek onze verfijnde collectie juwelen, zorgvuldig geselecteerd om elke gelegenheid bijzonder te maken.</p>
+                    <div class="category" id="ringen">
+                        <h3 class="reveal">Ringen</h3>
+                        <p class="category-brands reveal">o.a. Al Coro, Orage en Amici</p>
                         <div class="row no-gutters">
-                            <!-- Example images for brands -->
-                            <div class="col-md-3 p-2 text-center">
-                                <a href="https://www.alcoro.com/" target="_blank" rel="noopener noreferrer">
-                                    <img src="img/jewels/alcoro.jpg" alt="Al Coro" class="img-fluid brand-image">
-                                </a>
-                                <p class="mt-2">Al Coro</p>
+                            <div class="col-6 col-md-4 p-2 text-center reveal">
+                                <img src="img/jewels/alcoro.jpg" alt="Al Coro" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Al Coro</p>
                             </div>
-                            <div class="col-md-3 p-2 text-center">
-                                <a href="https://www.amicijewel.com//" target="_blank" rel="noopener noreferrer">
-                                    <img src="img/jewels/amici.jpg" alt="Amici" class="img-fluid brand-image">
-                                </a>
-                                <p class="mt-2">Amici</p>
+                            <div class="col-6 col-md-4 p-2 text-center reveal">
+                                <img src="img/jewels/orage.jpg" alt="Orage" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Orage</p>
                             </div>
-                            <div class="col-md-3 p-2 text-center">
-                                <a href="https://hulchibelluni.com/" target="_blank" rel="noopener noreferrer">
-                                    <img src="img/jewels/helchibelluni.jpg" alt="Helchi Belluni" class="img-fluid brand-image">
-                                </a>
-                                <p class="mt-2">Helchi Belluni</p>
-
-                            </div>
-                            <div class="col-md-3 p-2 text-center">
-                                <a href="https://www.dulcinea.be/" target="_blank" rel="noopener noreferrer">
-                                    <img src="img/jewels/dulcinea.png" alt="Dulci Nea" class="img-fluid brand-image">
-                                </a>
-                                <p class="mt-2">Dulci Nea</p>
-                            </div>
-                            <div class="col-md-3 p-2 text-center">
-                                <img src="img/jewels/nona.jpg" alt="Nona" class="img-fluid brand-image">
-                                <p class="mt-2">Nona</p>
-                            </div>
-                            <div class="col-md-3 p-2 text-center">
-                                <a href="https://www.orage.be/" target="_blank" rel="noopener noreferrer">
-                                    <img src="img/jewels/orage.jpg" alt="Orage" class="img-fluid brand-image">
-                                </a>
-                                <p class="mt-2">Orage</p>
-
-                            </div>
-                            <div class="col-md-3 p-2 text-center">
-                                <a href="https://www.mopf.de/" target="_blank" rel="noopener noreferrer">
-                                    <img src="img/jewels/mopf.png" alt="Sueno" class="img-fluid brand-image">
-                                </a>
-                                <p class="mt-2">Sueno Moser + Pfeil</p>
-
-                            </div>
-                            <div class="col-md-3 p-2 text-center">
-                                <a href="https://www.mopf.de/" target="_blank" rel="noopener noreferrer">
-                                    <img src="img/jewels/lesdeux.jpg" alt="Les Deux" class="img-fluid brand-image">
-                                </a>
-                                <p class="mt-2">Les Deux</p>
+                            <div class="col-6 col-md-4 p-2 text-center reveal">
+                                <img src="img/rings/amici.jpg" alt="Amici" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Amici</p>
                             </div>
                         </div>
                     </div>
-
+                    <div class="category" id="oorbellen">
+                        <h3 class="reveal">Oorbellen</h3>
+                        <p class="category-brands reveal">o.a. Amici, Dulcinea en Les Deux</p>
+                        <div class="row no-gutters">
+                            <div class="col-6 col-md-4 p-2 text-center reveal">
+                                <img src="img/jewels/amici.jpg" alt="Amici" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Amici</p>
+                            </div>
+                            <div class="col-6 col-md-4 p-2 text-center reveal">
+                                <img src="img/jewels/dulcinea.png" alt="Dulcinea" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Dulcinea</p>
+                            </div>
+                            <div class="col-6 col-md-4 p-2 text-center reveal">
+                                <img src="img/jewels/lesdeux.jpg" alt="Les Deux" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Les Deux</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category" id="armbanden">
+                        <h3 class="reveal">Armbanden</h3>
+                        <p class="category-brands reveal">o.a. Hulchi Belluni en Nona</p>
+                        <div class="row no-gutters">
+                            <div class="col-6 col-md-4 p-2 text-center reveal">
+                                <img src="img/jewels/helchibelluni.jpg" alt="Hulchi Belluni" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Hulchi Belluni</p>
+                            </div>
+                            <div class="col-6 col-md-4 p-2 text-center reveal">
+                                <img src="img/jewels/nona.jpg" alt="Nona" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Nona</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="category" id="kettingen">
+                        <h3 class="reveal">Kettingen &amp; hangers</h3>
+                        <p class="category-brands reveal">o.a. Moser + Pfeil</p>
+                        <div class="row no-gutters">
+                            <div class="col-6 col-md-4 p-2 text-center reveal">
+                                <img src="img/jewels/mopf.png" alt="Moser + Pfeil" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Moser + Pfeil</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="showroom-note reveal">Deze en vele andere stukken bekijkt u in onze winkel.</p>
                 </div>
             </div>
         </div>
     </div>
     <div class="container-fluid p-0">
-        <div class="row no-gutters" style="min-height: 100vh;">
-            <div class="col-md-4 d-none d-md-block image-container-watches full-height"></div>
+        <div class="row no-gutters">
+            <div class="col-md-4 d-none d-md-block image-container-watches full-height p-0"></div>
             <div class="d-md-none image-container-watches mobile-banner"></div>
-            <div class="col-md-8 d-flex flex-column pl-5 pr-5">
-                <div class="row no-gutters flex-column pt-5" id="uurwerken" style="min-height: 100vh; margin-top:50px">
-                    <h2><a href="#uurwerken" class="text-decoration-none text-dark">Uurwerken</a></h2>
-                    <p class="text-muted">Stijlvolle en betrouwbare uurwerken van gerenommeerde merken, perfect voor elke pols.</p>
+            <div class="col-md-8 px-4 px-md-5">
+                <div class="offer-section" id="uurwerken">
+                    <h2 class="reveal">Uurwerken</h2>
+                    <p class="section-lead reveal">Stijlvolle en betrouwbare uurwerken van gerenommeerde merken, perfect voor elke pols.</p>
                     <div class="row no-gutters">
-                        <div class="col-md-3 p-2 text-center">
-                            <a href="https://www.rado.com/" target="_blank" rel="noopener noreferrer">
-                                <img src="img/watches/rado.png" alt="Rado" class="img-fluid brand-image">
-                            </a>
-                            <p class="mt-2">Rado</p>
-                        </div>
-                        <div class="col-md-3 p-2 text-center">
-                            <a href="https://www.balmainwatches.com/" target="_blank" rel="noopener noreferrer">
-                                <img src="img/watches/balmain.png" alt="Balmain" class="img-fluid brand-image">
-                            </a>
-                            <p class="mt-2">Balmain</p>
-                        </div>
-                        <div class="col-md-3 p-2 text-center">
-                            <a href="https://www.certina.com/" target="_blank" rel="noopener noreferrer">
-                                <img src="img/watches/certina.png" alt="Certina" class="img-fluid brand-image">
-                            </a>
-                            <p class="mt-2">Certina</p>
-                        </div>
-                        <div class="col-md-3 p-2 text-center">
-                            <a href="https://www.tissotwatches.com/" target="_blank" rel="noopener noreferrer">
-                                <img src="img/watches/tissot.png" alt="Tissot" class="img-fluid brand-image">
-                            </a>
-                            <p class="mt-2">Tissot</p>
-                        </div>
-                        <div class="col-md-3 p-2 text-center">
-                            <a href="https://www.rodania.com/" target="_blank" rel="noopener noreferrer">
-                                <img src="img/watches/rodania.jpg" alt="Rodania" class="img-fluid brand-image">
-                            </a>
-                            <p class="mt-2">Rodania</p>
-                        </div>
-                        <div class="col-md-3 p-2 text-center">
-                            <a href="https://www.fossil.com/" target="_blank" rel="noopener noreferrer">
-                                <img src="img/watches/fossil.jpg" alt="Fossil" class="img-fluid brand-image">
-                            </a>
-                            <p class="mt-2">Fossil</p>
-                        </div>
-                        <div class="col-md-3 p-2 text-center">
-                            <a href="https://www.casio.com/" target="_blank" rel="noopener noreferrer">
-                                <img src="img/watches/casio.jpg" alt="Casio" class="img-fluid brand-image">
-                            </a>
-                            <p class="mt-2">Casio</p>
-                        </div>
-                        <div class="col-md-3 p-2 text-center">
-                            <a href="https://be.diesel.com/en/man/watches/" target="_blank" rel="noopener noreferrer">
-                                <img src="img/watches/diesel.png" alt="Diesel" class="img-fluid brand-image">
-                            </a>
-                            <p class="mt-2">Diesel</p>
-                        </div>
+                            <div class="col-6 col-md-3 p-2 text-center reveal">
+                                <img src="img/watches/rado.png" alt="Rado" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Rado</p>
+                            </div>
+                            <div class="col-6 col-md-3 p-2 text-center reveal">
+                                <img src="img/watches/tissot.png" alt="Tissot" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Tissot</p>
+                            </div>
+                            <div class="col-6 col-md-3 p-2 text-center reveal">
+                                <img src="img/watches/certina.png" alt="Certina" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Certina</p>
+                            </div>
+                            <div class="col-6 col-md-3 p-2 text-center reveal">
+                                <img src="img/watches/balmain.png" alt="Balmain" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Balmain</p>
+                            </div>
+                            <div class="col-6 col-md-3 p-2 text-center reveal">
+                                <img src="img/watches/rodania.jpg" alt="Rodania" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Rodania</p>
+                            </div>
+                            <div class="col-6 col-md-3 p-2 text-center reveal">
+                                <img src="img/watches/fossil.jpg" alt="Fossil" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Fossil</p>
+                            </div>
+                            <div class="col-6 col-md-3 p-2 text-center reveal">
+                                <img src="img/watches/casio.jpg" alt="Casio" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Casio</p>
+                            </div>
+                            <div class="col-6 col-md-3 p-2 text-center reveal">
+                                <img src="img/watches/diesel.png" alt="Diesel" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Diesel</p>
+                            </div>
                     </div>
+                    <p class="showroom-note reveal">Ook voor <a href="services.html">herstellingen van uurwerken</a> kunt u bij ons terecht.</p>
                 </div>
             </div>
         </div>
     </div>
     <div class="container-fluid p-0">
-        <div class="row no-gutters" style="min-height: 100vh;">
+        <div class="row no-gutters">
             <div class="col-md-4 d-none d-md-block image-container-weddingring full-height p-0"></div>
             <div class="d-md-none image-container-weddingring mobile-banner"></div>
-            <div class="col-md-8 d-flex flex-column pl-5 pr-5 pb-0 mb-0">
-                <div class="row no-gutters flex-column pt-5 pt-0" id="trouwringen" style="min-height: 90vh; margin-top:50px; margin-bottom:0px;">
-                    <h2><a href="#trouwringen" class="text-decoration-none text-dark">Trouwringen</a></h2>
-                    <p class="text-muted">Een symbool van eeuwige liefde: kies uit onze exclusieve collectie trouwringen.</p>
+            <div class="col-md-8 px-4 px-md-5">
+                <div class="offer-section" id="trouwringen">
+                    <h2 class="reveal">Trouwringen</h2>
+                    <p class="section-lead reveal">Een symbool van eeuwige liefde. Uw trouwringen kiest u niet zomaar: we nemen graag de tijd om samen met u de ringen te vinden die bij jullie passen.</p>
                     <div class="row no-gutters">
-                        <div class="col-md-4 p-2 text-center">
-                            <img src="img/rings/aurodesign.png" alt="Auro Design" class="img-fluid brand-image">
-                            <p class="mt-2">Auro Design</p>
-                        </div>
-                        <div class="col-md-4 p-2 text-center">
-                            <a href="https://www.memoire.com/" target="_blank" rel="noopener noreferrer">
-                                <img src="img/rings/memoire.png" alt="Memoire" class="img-fluid brand-image">
-                            </a>
-                            <p class="mt-2">Memoire</p>
-                        </div>
-                        <div class="col-md-4 p-2 text-center">
-                            <a href="https://amicijewel.com/en/rings/" target="_blank" rel="noopener noreferrer">
-                                <img src="img/rings/amici.jpg" alt="Amici" class="img-fluid brand-image">
-                            </a>
-                            <p class="mt-2">Amici</p>
-                        </div>
+                            <div class="col-6 p-2 text-center reveal">
+                                <img src="img/rings/aurodesign.png" alt="Auro Design" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Auro Design</p>
+                            </div>
+                            <div class="col-6 p-2 text-center reveal">
+                                <img src="img/rings/memoire.png" alt="Memoire" class="img-fluid brand-image" loading="lazy">
+                                <p class="product-caption">Memoire</p>
+                            </div>
                     </div>
-                    <div class="row no-gutters mt-auto">
-                        <div class="col-md-12 text-center p-3">
-                            <p class="mb-0">Juwelier Dirk Verlinden - BE0687 258 757</p>
-                    
+                    <p class="category-brands text-center reveal">Trouwringen van o.a. Auro Design, Memoire en Amici</p>
+                    <h3 class="reveal">Zo gaat het in zijn werk</h3>
+                    <ol class="steps">
+                        <li class="reveal"><strong>Afspraak maken.</strong> Zo zijn we zeker dat we rustig de tijd voor u hebben.</li>
+                        <li class="reveal"><strong>Kiezen.</strong> U past verschillende modellen, metalen en breedtes, met of zonder diamanten.</li>
+                        <li class="reveal"><strong>Op maat.</strong> We meten uw ringmaat nauwkeurig op.</li>
+                        <li class="reveal"><strong>Persoonlijk maken.</strong> Laat een naam, datum of boodschap aan de binnenkant graveren.</li>
+                        <li class="reveal"><strong>Ophalen.</strong> Uw ringen liggen voor u klaar in de winkel.</li>
+                    </ol>
+                    <div class="appointment-box reveal">
+                        <h3>Maak een afspraak</h3>
+                        <p>Bel ons of stuur een e-mail, dan plannen we een moment dat u past.</p>
+                        <div class="cta-row reveal">
+                            <a href="tel:+3233136291" class="btn btn-brand">Bel 03 313 62 91</a>
+                            <a href="mailto:verlinden.dirk@me.com?subject=Afspraak%20trouwringen" class="btn btn-brand-outline">Mail ons</a>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div>
-
     </div>
-
-    </div>
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <img src="img/logo-mark-white.png" alt="Juwelier Verlinden Dirk" class="footer-logo">
+                    <p>Biest 13<br>2960 Brecht</p>
+                </div>
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h2 class="footer-heading">Contact</h2>
+                    <p><a href="tel:+3233136291">03 313 62 91</a><br><a href="mailto:verlinden.dirk@me.com">verlinden.dirk@me.com</a></p>
+                </div>
+                <div class="col-md-4">
+                    <h2 class="footer-heading">Openingsuren</h2>
+                    <p>Di – vr: 09:00 – 12:30 en 13:30 – 18:00<br>Za: 09:00 – 17:00<br>Zo en ma: gesloten</p>
+                </div>
+            </div>
+            <p class="footer-bottom">© 2026 Juwelier Verlinden Dirk · BTW BE 0687.258.757</p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
